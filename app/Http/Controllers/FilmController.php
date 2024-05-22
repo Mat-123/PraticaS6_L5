@@ -75,7 +75,6 @@ class FilmController extends Controller
         $film->img = $data['img'];
         $film->update();
 
-        // ridirezionare
         return redirect()->route('films.index')->with('update_success', $film);
     }
 

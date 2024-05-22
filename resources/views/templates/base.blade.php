@@ -14,7 +14,7 @@
     </script>
 </head>
 
-<body>
+<body style="background-color:#4B4D4D; color:white !important;">
     @include('includes.nav')
 
     <div class="container">
