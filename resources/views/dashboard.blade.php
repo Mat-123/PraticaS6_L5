@@ -1,6 +1,6 @@
 @extends('templates.base')
 
-@section('title', 'Epiflix - Homepage')
+@section('title', 'Epiflix - Dashboard')
 
 @section('content')
 
