@@ -4,11 +4,13 @@
 
 @section('content')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-xs-10 col-md-8 mx-auto">
+                <div class="card">
+                    <div class="cart-title py-5 px-3">
                     {{ __("You're logged in!") }}
+                </div>
                 </div>
             </div>
         </div>

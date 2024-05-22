@@ -37,19 +37,19 @@
                         <div class="col-sm-6 col-md-4 col-lg-3 my-3">
                             <div class="card h-100">
                                 <img src="{{ $film->img }}" class="card-img-top" alt="...">
-                                    <div class="card-body">
+                                    <div class="card-body d-flex flex-column">
                                         <h5 class="card-title">{{ $film->title }}</h5>
                                         <p class="card-text">{{ $film->description }}</p>
                                         <p class="card-text">Director: {{ $film->director }}</p>
                                         <p class="card-text">Price: {{ $film->price}}€</p>
                                         @auth
                                             @if (Auth::user()->id === $film->user_id)
-                                            <div class="d-flex flex-row justify-content-around">
+                                            <div class="d-flex flex-column justify-content-around mt-auto">
                                                 <a class="btn btn-warning" href="{{ route('films.edit', ['id' => $film]) }}">Edit</a>
                                                 <form action="{{ route('films.destroy', ['id' => $film]) }}" method="POST">
                                                     @method('DELETE')
                                                     @csrf
-                                                    <button class="btn btn-danger">Elimina</button>
+                                                    <button class="btn btn-danger w-100 mt-2">Elimina</button>
                                                 </form></div>
                                             @endif
                                         @endauth
