@@ -7,8 +7,7 @@
 <div class="container mt-4 mb-3">
     <div class="row">
         <div class="card col-10 mx-auto my-3">
-            <div class="card-body">
-                <h5 class="card-title">Profile Information</h5>
+                <h5 class="card-title my-2">Profile Information</h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary">Update your account's profile information and email address.</h6>
                 <div class="card-body">
                 <form id="send-verification" method="post" action="{{ route('verification.send') }}">
@@ -44,33 +43,56 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </form>
-            </div>
             </div>  
         </div>
-    </div>
-</div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-10">
+        <div class="card col-10 mx-auto my-3">
+            <h5 class="card-title my-2">Update Password</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Ensure your account is using a long, random password to stay secure.</h6>
+            <div class="card-body">
+                <form method="post" action="{{ route('password.update') }}" class="mt-6 space-y-6 needs-validation">
+                    @csrf
+                    @method('put')
+                    <div class="mb-3">
+                        <label for="update_password_current_password" class="form-label">Current Password</label>
+                        <input type="password" class="form-control" id="update_password_current_password" name="current_password" required>
+                            {{-- <div class="invalid-feedback">
+                            {{$errors->updatePassword->get('current_password')}}
+                            </div> --}}
+                    </div>
+                    <div class="mb-3">
+                        <label for="update_password_password" class="form-label">New Password</label>
+                        <input type="password" class="form-control" id="update_password_password" name="password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="update_password_password_confirmation" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="update_password_password_confirmation" name="password_confirmation" required>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        @if (session('status') === 'password-updated')
+                            <div
+                            x-data="{ show: true }"
+                            x-show="show"
+                            x-transition
+                            x-init="setTimeout(() => show = false, 2000)"
+                            class="alert alert-success mt-2" role="alert"
+                            >{{ __('Saved.') }}</div>
+                        @endif
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
-</div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-10">
-        </div>
-    </div>
-</div>
-
-    <div class="py-12">
-
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
+        <div class="container">
+            <div class="row">
+                <div class="col-10">
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
 
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <div class="max-w-xl">
